@@ -37,13 +37,13 @@
 
             // If the user guesses wrong, tell them they were wrong and the right word.
 
-            if (guess !== secretWord) {
+            if (guess.toLowerCase() !== secretWord) {
                 alert("Incorrect! The correct word was " + secretWord);
             }
             
             // If the user guesses the correct word, congratulate them.
 
-            if (guess === secretWord) {
+            if (guess.toLowerCase() === secretWord) {
                 alert("Congratulations! You guessed the right word!");
             }
 
