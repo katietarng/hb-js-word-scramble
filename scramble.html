@@ -35,16 +35,16 @@
 
             console.log(guess);
 
-            // If the user guesses wrong, tell them they were wrong and the right word.
-
-            if (guess.toLowerCase() !== secretWord) {
-                alert("Incorrect! The correct word was " + secretWord);
-            }
-            
             // If the user guesses the correct word, congratulate them.
 
-            if (guess.toLowerCase() === secretWord) {
+            if (guess.toLowerCase().trim() === secretWord) {
                 alert("Congratulations! You guessed the right word!");
+            }
+            
+            // If the user guesses wrong, tell them they were wrong and the right word.
+
+            else {
+                alert("Incorrect! The correct word was " + secretWord);
             }
 
             playing = confirm("Press OK To keep playing or Cancel to quit");
