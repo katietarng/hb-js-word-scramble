@@ -7,8 +7,31 @@
     <h1>A Javascript Word Scramble Game</h1>
 
     <script>
-        var WORDS     = ["booger", "apple", "hackbright", "mango"];
-        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+        function scrambleWord(word) {
+            // scrambles the letters in the given word, returns scrambled version
+
+            // split word into an array of letters
+            var letters = word.split(""),
+            // determine the length of the array
+            numLetters = letters.length;
+
+            // iterate through the letters, from the end, until you reach index 0
+            for(var i = numLetters - 1; i > 0; i--) {
+                // choose a second, random, index less than the current one
+                var j = Math.floor(Math.random() * (i + 1));
+
+                // switch the letters at the two indices
+                var tmp = letters[i];
+                letters[i] = letters[j];
+                letters[j] = tmp;
+            }
+            // rejoin the letters into one string
+            return letters.join("");
+        }
+
+
+        var WORDS = ["balloonicorn", "python", "hackbright", "mango"];
+        // var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
 
         var playing = true;
 
@@ -23,7 +46,7 @@
 
             // Grab the corresponding scrambled word from the SCRAMBLED array
 
-            var scramble = SCRAMBLED[wordIndex];
+            var scramble = scrambleWord(secretWord);
 
             console.log(scramble);
 
